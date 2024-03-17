@@ -26,6 +26,10 @@ public class AuthorityService {
         authority.setCanModify(command.canModify());
         return authorityRepository.save(authority);
     }
+
+    public Authority findById(Long id) {
+        return authorityRepository.findById(id).orElseThrow();
+    }
 }
 
 
