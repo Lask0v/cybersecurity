@@ -11,9 +11,22 @@ public class Message {
 
     private String content;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
+
+    public Message(Long id) {
+        this.id = id;
+    }
+
+    public Message() {
+    }
+
+    public Message(Long id, String content, User user) {
+        this.id = id;
+        this.content = content;
+        this.user = user;
+    }
 
     public Long getId() {
         return id;

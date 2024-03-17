@@ -1,6 +1,7 @@
 package pl.wipb.cb;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,10 +14,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     public User saveUser(User user) {
         // Haszowanie hasła przed zapisaniem do bazy danych
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setPassword(user.getPassword());
         return userRepository.save(user);
     }
 
