@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -16,11 +17,10 @@ public class UserService {
 
     @Transactional
     public User saveUser(User user) {
-        // Haszowanie hasła przed zapisaniem do bazy danych
-        return userRepository.save(user);
+        return userRepository.findByUsername(user.getUsername()).orElse(userRepository.save(user));
     }
 
-    public User findByUsername(String username) {
+    public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
