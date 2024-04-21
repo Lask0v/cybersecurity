@@ -21,4 +21,14 @@ public class UserResource {
         user.setUsername(cmd.login());
         return userService.saveUser(user);
     }
+    @PutMapping("/login-attempts")
+    public void createLoginAttempts(@RequestBody CreateLoginAttemptsCommand cmd) {
+         userService.createLoginAttempts(cmd);
+    }
+
+    @GetMapping
+    public User login(@RequestBody AuthCommand command) {
+        return userService.login(command);
+    }
+
 }
