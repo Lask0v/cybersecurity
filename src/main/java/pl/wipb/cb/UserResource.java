@@ -26,7 +26,7 @@ public class UserResource {
          userService.createLoginAttempts(cmd);
     }
 
-    @GetMapping
+    @PostMapping
     public User login(@RequestBody AuthCommand command) {
         return userService.login(command);
     }

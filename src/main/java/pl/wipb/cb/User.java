@@ -73,6 +73,13 @@ public class User {
         this.password = password;
     }
 
+
+    public User(String username, String password, boolean blocked) {
+        this.username = username;
+        this.password = password;
+        this.blocked = blocked;
+    }
+
     public User() {
     }
 
