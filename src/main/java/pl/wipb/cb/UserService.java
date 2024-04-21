@@ -71,8 +71,7 @@ public class UserService {
         User user = userOptional.get();
         user.setLastSuccessfulLogin(LocalDate.now());
         user.setLastUnsuccessfulLoginAttempts(0);
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     private static void delayAuth(Integer lastUnsuccessfulLoginAttempts) {
